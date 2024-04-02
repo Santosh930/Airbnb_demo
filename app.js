@@ -18,23 +18,23 @@ const wrapAsync=require('./utils/wrapAsync.js');
 const ExpressError=require('./utils/expressError.js');
 
 //for signup/login using passport
-const  session=require('express-session');
-const sessionOptions={
-    secret:"mysupersecratestring",
-    resave:false,
-    saveUninitialized:true,
-    cookie:{
-        expires:Date.now()+7*24*60*60*1000,
-        maxAge:7*24*60*60*1000,
-        httpOnly:true,
-    }
+// const  session=require('express-session');
+// const sessionOptions={
+//     secret:"mysupersecratestring",
+//     resave:false,
+//     saveUninitialized:true,
+//     cookie:{
+//         expires:Date.now()+7*24*60*60*1000,
+//         maxAge:7*24*60*60*1000,
+//         httpOnly:true,
+//     }
 
-}
-app.use(session(sessionOptions));
-app.use(flash());
+// }
+// app.use(session(sessionOptions));
+// app.use(flash());
 
-const passport=require('passport');
-const LocalStrategy=require('passport-local');
+// const passport=require('passport');
+// const LocalStrategy=require('passport-local');
 const User=require('./models/user.js');
 
 // // app.use(flash());
@@ -56,15 +56,15 @@ app.get('/test',(req,res)=>{
     res.send('Session apply')
 });
 
-app.get('/reqcount',(req,res)=>{
-    if(req.session.count){
-        req.session.count++;
-    }
-    else{
-        req.session.count=1;
-    }
-    res.send(`The total reqcount is ${req.session.count} `);
-})
+// app.get('/reqcount',(req,res)=>{
+//     if(req.session.count){
+//         req.session.count++;
+//     }
+//     else{
+//         req.session.count=1;
+//     }
+//     res.send(`The total reqcount is ${req.session.count} `);
+// })
 
 const ejsMate=require('ejs-mate');
 app.engine('ejs',ejsMate);
